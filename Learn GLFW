@@ -1,0 +1,44 @@
+/*
+  ### Learning source : https://learnopengl.com/Getting-started/Creating-a-window ###
+  ### Learning Source : https://www.glfw.org/docs/latest/intro_guide.html ###
+Learn GLFW(Graphics Library FrameWork), Library which Support OpenGL
+  *** GLFW Download : https://www.glfw.org/download.html ***
+  *** CMAKE Download : https://cmake.org/download/ *** (Easy to cross platform)
+  *** GLAD(OpenGL Loading Library) : https://github.com/Dav1dde/glad *** (GLAD manages function pointers for openGL)
+*/
+
+
+// === Window Guide ===
+   // -- initialize GLFW --
+      glfwInit();
+      // -> terminated GLFW, glfwTerminate();
+   // -- window creation --
+      GLFWwindow* window = glfwCreateWindow(640, 480, "My Title", NULL, NULL);
+      // -> create 640 x 480 window. If falied create window, returned NULL
+   // -- window hints -- 
+      // -> Can create some hints with specific value
+      // -> int value : glfwWindowHint(int hint, int value), string value : glfwWindowString(int hint, const char* value)
+      // -> delete all hints : glfwDefaultWindowHints(void)
+   // -- initialize GLAD --
+      if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+      {
+          std::cout << "Failed to initialize GLAD" << std::endl;
+          return -1;
+      }    
+      // -> glfwGetProcAddress : defines the correct function based on which OS we're compiling for
+   // -- set ViewPort -- 
+      glViewport(GLint X, GLint y, GLsizei width, GLsizei height);
+      // -> x : the left x-coordinate of the viewport rectangle
+            y : the bottom y-coordinate of the viewport rectangle
+            width : the width of viewport
+            height : the height of viewport
+      // -> We have to tell OpenGL the size of the rendering window
+
+
+
+/*
+NOW LEARNIG POINT 
+  https://learnopengl.com/Getting-started/Hello-Window
+  https://www.glfw.org/docs/latest/window_guide.html
+  https://github.com/Dav1dde/glad
+*/
